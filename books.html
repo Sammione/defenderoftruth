@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Books — Defender of Truth</title>
+<link rel="icon" href="assets/img/logo.svg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  tailwind.config = {
+    theme: { extend: { boxShadow: { soft: "0 10px 30px rgba(0,0,0,.08)" } } }
+  }
+</script>
+</head>
+<body class="bg-surface text-gray-900" data-page="books">
+<header class="sticky top-0 z-40 card-sacred backdrop-blur border-b">
+  <div class="mx-auto container-max px-4">
+    <div class="flex h-16 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="assets/img/logo.svg" alt="" class="h-9 w-9 rounded-xl shadow-soft">
+        <div class="leading-tight">
+          <div class="font-semibold">Defender of Truth</div>
+          <div class="text-xs text-gray-500">Christian digital resources</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        <a data-nav="home" class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="index.html">Home</a>
+        <a data-nav="magazines" class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="magazines.html">Magazines</a>
+        <a data-nav="audio" class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="audio.html">Audio</a>
+        <a data-nav="books" class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="books.html">Books</a>
+        
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="admin/index.html" class="hidden sm:inline-flex px-3 py-2 rounded-xl text-sm border hover:bg-gray-50">Admin Portal</a>
+        <button data-mobile-menu-button class="md:hidden inline-flex p-2 rounded-xl border hover:bg-gray-50" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div data-mobile-menu-panel class="md:hidden hidden pb-4">
+      <div class="grid gap-2">
+        <a class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="index.html">Home</a>
+        <a class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="magazines.html">Magazines</a>
+        <a class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="audio.html">Audio</a>
+        <a class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="books.html">Books</a>
+        
+        <a class="px-3 py-2 rounded-xl text-sm border hover:bg-gray-50" href="admin/index.html">Admin Portal</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main>
+  <section class="mx-auto container-max px-4 pt-10">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Books & E‑books</h1>
+        <p class="text-gray-600 mt-2">Download resources for study and devotion.</p>
+      </div>
+      <div class="w-full sm:w-auto">
+        <label class="sr-only" for="books-search">Search books</label>
+        <input id="books-search" class="w-full sm:w-72 px-4 py-2.5 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-gray-200"
+               placeholder="Search books…">
+      </div>
+    </div>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="books-list"></div>
+  </section>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/render.js"></script>
+<script>
+  const all = window.DOT_DATA?.books || [];
+  const mount = (items)=>renderBooks(items, "books-list");
+  mount(all);
+  initSearch("books-search", all, mount);
+</script>
+
+
+<footer class="mt-16"><div class="h-px w-full" style="background:linear-gradient(90deg,#4f46e5,#0ea5e9,#10b981)"></div>
+  <div class="mx-auto container-max px-4 py-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="font-semibold">Defender of Truth</div>
+        <div class="text-sm text-gray-600 mt-2">
+          A professional frontend built with Tailwind. Connect your backend later for admin uploads.
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold">Quick links</div>
+        <div class="mt-2 grid gap-2 text-sm">
+          <a class="text-gray-700 hover:underline" href="magazines.html">Magazines</a>
+          <a class="text-gray-700 hover:underline" href="audio.html">Audio</a>
+          <a class="text-gray-700 hover:underline" href="books.html">Books</a>
+          
+        </div>
+      </div>
+      <div>
+        
+    </div>
+    <div class="text-sm scripture mt-10">“Let the word of Christ dwell in you richly.” — Colossians 3:16</div>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear()</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

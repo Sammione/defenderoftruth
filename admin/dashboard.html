@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard — Defender of Truth</title>
+<link rel="icon" href="../assets/img/logo.svg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../assets/css/styles.css">
+<script>
+  tailwind.config = {
+    theme: { extend: { boxShadow: { soft: "0 10px 30px rgba(0,0,0,.08)" } } }
+  }
+</script>
+</head>
+<body class="bg-surface text-gray-900">
+
+<header class="border-b bg-white/80 backdrop-blur">
+  <div class="mx-auto container-max px-4">
+    <div class="flex h-16 items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2">
+        <img src="../assets/img/logo.svg" class="h-9 w-9 rounded-xl shadow-soft" alt="">
+        <div class="leading-tight">
+          <div class="font-semibold">Admin Dashboard</div>
+          <div class="text-xs text-gray-500">Uploads & content</div>
+        </div>
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="../index.html" class="px-3 py-2 rounded-xl text-sm border hover:bg-gray-50">View site</a>
+        <button id="logout" class="px-3 py-2 rounded-xl text-sm btn-primary text-white hover:opacity-95">Sign out</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="mx-auto container-max px-4 py-10">
+  <div class="rounded-[2rem] border card-tint p-8 shadow-soft">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge-accent text-sm">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Content manager
+        </div>
+        <h1 class="text-2xl md:text-3xl font-semibold mt-4">Stewardship of God’s Word</h1>
+        <p class="text-gray-600 mt-2">Upload teachings and publications to strengthen the body of Christ.</p>
+      </div>
+    </div>
+
+    <div class="mt-8 grid lg:grid-cols-2 gap-6">
+      <section class="rounded-2xl border bg-white/80 p-6 shadow-soft">
+        <h2 class="text-xl font-semibold">Audio</h2>
+        <p class="text-sm text-gray-600 mt-1">Upload an MP3 and provide details.</p>
+        <form class="mt-5 grid gap-3" onsubmit="event.preventDefault(); alert('Prototype: connect backend to store uploads.');">
+          <input class="px-4 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Title" required>
+          <input class="px-4 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Speaker (optional)">
+          <input class="px-4 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Date (optional)">
+          <input type="file" class="px-4 py-3 rounded-2xl border bg-gray-50" accept="audio/*" required>
+          <button class="px-5 py-3 rounded-2xl btn-primary text-white hover:opacity-95 shadow-soft">Upload audio</button>
+        </form>
+      </section>
+
+      <section class="rounded-2xl border bg-white/80 p-6 shadow-soft">
+        <h2 class="text-xl font-semibold">Books</h2>
+        <p class="text-sm text-gray-600 mt-1">Upload a PDF and optional cover.</p>
+        <form class="mt-5 grid gap-3" onsubmit="event.preventDefault(); alert('Prototype: connect backend to store uploads.');">
+          <input class="px-4 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Title" required>
+          <input class="px-4 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Author (optional)">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div>
+              <div class="text-xs text-gray-500 mb-2">Cover (optional)</div>
+              <input type="file" class="w-full px-4 py-3 rounded-2xl border bg-gray-50" accept="image/*">
+            </div>
+            <div>
+              <div class="text-xs text-gray-500 mb-2">Book file</div>
+              <input type="file" class="w-full px-4 py-3 rounded-2xl border bg-gray-50" accept=".pdf,.epub,.mobi" required>
+            </div>
+          </div>
+          <button class="px-5 py-3 rounded-2xl btn-primary text-white hover:opacity-95 shadow-soft">Upload book</button>
+        </form>
+      </section>
+    </div>
+
+    <section class="mt-6 rounded-2xl border bg-white/80 p-6 shadow-soft">
+      <h2 class="text-xl font-semibold">Magazines</h2>
+      <p class="text-sm text-gray-600 mt-1">Upload a magazine issue (PDF).</p>
+      <form class="mt-5 grid md:grid-cols-3 gap-3" onsubmit="event.preventDefault(); alert('Prototype: connect backend to store uploads.');">
+        <input class="px-4 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-200 md:col-span-1" placeholder="Title" required>
+        <input class="px-4 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-indigo-200 md:col-span-1" placeholder="Issue date (optional)">
+        <input type="file" class="px-4 py-3 rounded-2xl border bg-gray-50 md:col-span-1" accept=".pdf" required>
+        <div class="md:col-span-3">
+          <button class="px-5 py-3 rounded-2xl btn-primary text-white hover:opacity-95 shadow-soft">Upload magazine</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>
+
+<script>
+  if (localStorage.getItem('dot_admin_authed') !== '1') {
+    window.location.href = './index.html';
+  }
+  document.getElementById('logout').addEventListener('click', () => {
+    localStorage.removeItem('dot_admin_authed');
+    window.location.href = './index.html';
+  });
+</script>
+</body>
+</html>

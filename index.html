@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Defender of Truth — Home</title>
+<link rel="icon" href="assets/img/logo.svg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  tailwind.config = {
+    theme: { extend: { boxShadow: { soft: "0 10px 30px rgba(0,0,0,.08)" } } }
+  }
+</script>
+</head>
+<body class="bg-surface parchment text-gray-900" data-page="home">
+<header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
+  <div class="mx-auto container-max px-4">
+    <div class="flex h-16 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="assets/img/logo.svg" alt="" class="h-9 w-9 rounded-xl shadow-soft">
+        <div class="leading-tight">
+          <div class="font-semibold">Defender of Truth</div>
+          <div class="text-xs text-gray-500">Christian digital resources</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        <a data-nav="home" class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="index.html">Home</a>
+        <a data-nav="magazines" class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="magazines.html">Magazines</a>
+        <a data-nav="audio" class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="audio.html">Audio</a>
+        <a data-nav="books" class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="books.html">Books</a>
+        
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="admin/index.html" class="hidden sm:inline-flex px-3 py-2 rounded-xl text-sm border hover:bg-gray-50">Admin Portal</a>
+        <button data-mobile-menu-button class="md:hidden inline-flex p-2 rounded-xl border hover:bg-gray-50" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div data-mobile-menu-panel class="md:hidden hidden pb-4">
+      <div class="grid gap-2">
+        <a class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="index.html">Home</a>
+        <a class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="magazines.html">Magazines</a>
+        <a class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="audio.html">Audio</a>
+        <a class="px-3 py-2 rounded-xl text-sm hover:bg-gray-100" href="books.html">Books</a>
+        
+        <a class="px-3 py-2 rounded-xl text-sm border hover:bg-gray-50" href="admin/index.html">Admin Portal</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main>
+  <section class="mx-auto container-max px-4 pt-10">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-700">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Curated resources, updated regularly
+        </div>
+        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mt-4 gradient-text section-title">The Word that gives life and truth</h1>
+        <p class="text-gray-600 mt-4 text-lg leading-relaxed">
+          <span class="scripture">“The entrance of Your words gives light; it gives understanding to the simple.”</span>
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="audio.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl btn-primary text-white hover:opacity-95 shadow-soft">
+            Explore Audio
+          </a>
+          <a href="books.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl btn-outline hover:bg-indigo-50">
+            Browse Books
+          </a>
+        </div>
+
+        <div class="mt-8 grid grid-cols-3 gap-4">
+          <div class="p-4 rounded-2xl border bg-white/70 backdrop-blur">
+            <div class="text-sm text-gray-500">Audio</div>
+            <div class="text-2xl font-semibold mt-1">Teachings</div>
+          </div>
+          <div class="p-4 rounded-2xl border bg-white/70 backdrop-blur">
+            <div class="text-sm text-gray-500">Books</div>
+            <div class="text-2xl font-semibold mt-1">E‑books</div>
+          </div>
+          <div class="p-4 rounded-2xl border bg-white/70 backdrop-blur">
+            <div class="text-sm text-gray-500">Magazine</div>
+            <div class="text-2xl font-semibold mt-1">Quarterly</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-[2rem] hero-grid"></div>
+        <div class="relative rounded-[2rem] border card-tint p-6 shadow-soft glow">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-sm text-gray-500">Featured</div>
+              <div class="text-xl font-semibold mt-1">Latest uploads</div>
+            </div>
+            <a href="admin/index.html" class="text-sm text-gray-700 hover:underline">Admin Portal</a>
+          </div>
+
+          <div class="mt-6">
+            <div class="text-sm font-medium text-gray-800">Latest Audio</div>
+            <div class="mt-3 grid gap-2" id="home-audio"></div>
+          </div>
+
+          <div class="mt-8">
+            <div class="text-sm font-medium text-gray-800">Latest Books</div>
+            <div class="mt-3 grid gap-2" id="home-books"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto container-max px-4 mt-14">
+    <div class="rounded-[2rem] border section-tint p-8 md:p-10 shadow-soft">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight section-title">Be nourished by the Word</h2>
+    <p class="text-gray-700 mt-3 leading-relaxed">
+      Through sound doctrine, inspired publications, and anointed teachings,
+      believers are strengthened, corrected, and equipped to walk in righteousness.
+    </p>
+    <div class="mt-6 grid gap-4">
+      <div class="flex gap-3 items-start">
+        <span class="h-10 w-10 rounded-2xl icon-halo flex items-center justify-center">✝</span>
+        <p class="text-gray-700">Faith is built and hearts are aligned with God’s truth.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="h-10 w-10 rounded-2xl icon-halo flex items-center justify-center">📖</span>
+        <p class="text-gray-700">Understanding grows through careful study of Scripture.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="h-10 w-10 rounded-2xl icon-halo flex items-center justify-center">🔥</span>
+        <p class="text-gray-700">Lives are transformed by the living Word of God.</p>
+      </div>
+    </div>
+    
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="h-10 w-10 rounded-2xl bg-white border flex items-center justify-center">✓</span>
+              <div>
+                <div class="font-medium">Responsive everywhere</div>
+                <div class="text-sm text-gray-600">Optimized for mobile, tablet, and desktop.</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="h-10 w-10 rounded-2xl bg-white border flex items-center justify-center">✓</span>
+              <div>
+                <div class="font-medium">Content-ready structure</div>
+                <div class="text-sm text-gray-600">Prepared for secure uploads and content management.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="rounded-2xl bg-white border p-5">
+            <div class="font-medium">Audio library</div>
+            <div class="text-sm text-gray-600 mt-1">Play and download teachings.</div>
+          </div>
+          <div class="rounded-2xl bg-white border p-5">
+            <div class="font-medium">Book downloads</div>
+            <div class="text-sm text-gray-600 mt-1">Curated PDFs and e‑books.</div>
+          </div>
+          <div class="rounded-2xl bg-white border p-5">
+            <div class="font-medium">Magazines</div>
+            <div class="text-sm text-gray-600 mt-1">Quarterly issues and specials.</div>
+          </div>
+          <div class="rounded-2xl bg-white border p-5">
+            <div class="font-medium">Contact</div>
+            <div class="text-sm text-gray-600 mt-1">Easy ways to reach the ministry.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script>
+  const audios = (window.DOT_DATA?.audios||[]).slice(0,4);
+  const books  = (window.DOT_DATA?.books||[]).slice(0,4);
+
+  document.getElementById("home-audio").innerHTML = audios.map(x => `
+    <a href="audio.html" class="group p-3 rounded-2xl border hover:bg-gray-50">
+      <div class="flex items-center justify-between gap-3">
+        <div class="min-w-0">
+          <div class="font-medium truncate">${x.title}</div>
+          <div class="text-sm text-gray-600 truncate">${x.speaker || ""}</div>
+        </div>
+        <div class="text-xs text-gray-500 group-hover:text-gray-700">Listen →</div>
+      </div>
+    </a>
+  `).join("");
+
+  document.getElementById("home-books").innerHTML = books.map(x => `
+    <a href="books.html" class="group p-3 rounded-2xl border hover:bg-gray-50">
+      <div class="flex items-center justify-between gap-3">
+        <div class="min-w-0">
+          <div class="font-medium truncate">${x.title}</div>
+          <div class="text-sm text-gray-600 truncate">${x.author || ""}</div>
+        </div>
+        <div class="text-xs text-gray-500 group-hover:text-gray-700">Download →</div>
+      </div>
+    </a>
+  `).join("");
+</script>
+
+
+<footer class="mt-16"><div class="h-px w-full" style="background:linear-gradient(90deg,#4f46e5,#0ea5e9,#10b981)"></div>
+  <div class="mx-auto container-max px-4 py-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="font-semibold">Defender of Truth</div>
+        <div class="text-sm text-gray-600 mt-2">
+         A sacred space designed to inspire spiritual growth, deepen faith, and equip hearts to walk daily in God’s truth.
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold">Quick links</div>
+        <div class="mt-2 grid gap-2 text-sm">
+          <a class="text-gray-700 hover:underline" href="magazines.html">Magazines</a>
+          <a class="text-gray-700 hover:underline" href="audio.html">Audio</a>
+          <a class="text-gray-700 hover:underline" href="books.html">Books</a>
+          
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold">Living Word</div>
+        <div class="mt-2 text-sm text-gray-700">God’s Word for spiritual growth and daily living.</div>
+        <!-- <div class="mt-3">
+          <a href="admin/index.html" class="inline-flex px-3 py-2 rounded-xl text-sm border hover:bg-gray-50">Open admin portal</a>
+        </div> -->
+      </div>
+    </div>
+    <div class="text-sm scripture mt-10">“Let the word of Christ dwell in you richly.” — Colossians 3:16</div>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear()</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
